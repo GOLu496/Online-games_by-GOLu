@@ -1,51 +1,185 @@
-<!DOCTYPE html>
-<html lang="en>
+<!DOCTYPE html><html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <title>Online Free Games</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074803850365464"
+     crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online free Games — by GOLu the GhosT</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f5f5f5;
+    :root{
+      --bg: #0f1222;
+      --card:#16192b;
+      --text:#e6e9f2;
+      --muted:#aeb3c7;
+      --accent:#7c9cff;
     }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 45px;
-      color: #333;
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
-
-    .by-line {
-      font-size: 16px;
-      color: #666;
-      margin-top: 0px;
+    header{ display:flex; justify-content:center; align-items:center; gap:10px; padding:20px; }
+    h1{ margin:0; font-size: clamp(20px, 4vw, 32px); }
+    .subline{ margin:0; font-size: clamp(14px, 2.2vw, 18px); color:var(--muted); text-align:center; }
+    .subline a{ color:var(--accent); text-decoration:none; }
+    .top-home-btn{
+      display:none;
+      background:#ffeb3b;
+      color:#000;
+      border:none;
+      padding:6px 12px;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:14px;
     }
-
-    .ghost-link {
-      font-size: 30px;
-      color: #007BFF;
-      text-decoration: none;
-      margin-left: 5px;
+    .wrap{ max-width:1100px; margin:0 auto; padding:20px; }
+    .games{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:16px; }
+    .game-card{
+      position:relative;
+      display:block;
+      background:var(--card);
+      border:1px solid #2a2f49;
+      border-radius:18px;
+      overflow:hidden;
+      aspect-ratio: 1 / 1;
+      box-shadow: 0 8px 20px -10px #000a;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor:pointer;
     }
-
-    .ghost-link:hover {
-      text-decoration: underline;
+    .game-card:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -12px #000c; border-color: var(--accent); }
+    .game-card img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .game-title{
+      position:absolute; left:10px; right:10px; bottom:10px;
+      padding:8px 10px; font-size: clamp(12px, 2vw, 15px);
+      border-radius:12px;
+      background: linear-gradient(180deg, #0b0f25aa, #0b0f25ee);
+      color:#fff; text-shadow: 0 1px 6px rgba(0,0,0,.5);
     }
+    .view-section{ display:none; }
+    .game-view{
+      display:none;
+      width:100%;
+      aspect-ratio: 9 / 16;
+      background:#000;
+      position:relative;
+    }
+    .game-view iframe{
+      position:absolute;
+      width:100%;
+      height:100%;
+      border:none;
+    }
+    footer{ background:#222; color:white; padding:20px; text-align:center; margin-top:20px; }
+    footer button{ background:none; border:none; color:#ffeb3b; margin:0 10px; text-decoration:none; cursor:pointer; font-size:14px; }
   </style>
 </head>
 <body>
+  <header>
+    <button class="top-home-btn" id="topHomeBtn">Home</button>
+    <div>
+      <h1>Online free Games</h1>
+      <p class="subline">by <a href="https://youtube.com/@golutheghost-4444?si=MNI8c55kVrfDcNpm" target="_blank">GOLu the GhosT</a></p>
+    </div>
+  </header>  <div class="wrap">
+    <!-- Home Page -->
+    <section class="games view-section" id="homeView" style="display:grid;">
+      <div class="game-card" data-game="https://golu496.github.io/Tic-Tac-Toe/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Tic_tac_toe.svg" alt="Tic Tac Toe game board">
+        <span class="game-title">Tic Tac Toe</span>
+      </div>
+      <div class="game-card" data-game="https://example.com/game2">
+        <img src="https://images.unsplash.com/photo-1600697395543-ef9484008f03?q=80&w=1200&auto=format&fit=crop" alt="Retro platformer game screenshot">
+        <span class="game-title">Retro Jumper</span>
+      </div>
+    </section><!-- Game View -->
+<div class="game-view" id="gameView">
+  <iframe src="" id="gameFrame"></iframe>
+</div>
 
-  <h1>Online Free Games</h1>
-  <div class="by-line">
-    by 
-    <a href="https://www.google.com" target="_blank" class="ghost-link">GOLu the GhosT</a>
-  </div>
+<!-- About Us Page -->
+<section class="view-section" id="aboutView">
+  <h2>About Us</h2>
+  <p>हमारे बारे में जानकारी यहां होगी...</p>
+</section>
 
-</body>
+<!-- Contact Us Page -->
+<section class="view-section" id="contactView">
+  <h2>Contact Us</h2>
+  <p>हमसे संपर्क करने के तरीके यहां होंगे...</p>
+</section>
+
+<!-- Privacy Policy Page -->
+<section class="view-section" id="privacyView">
+  <h2>Privacy Policy</h2>
+  <p>आपकी गोपनीयता के बारे में जानकारी यहां होगी...</p>
+</section>
+
+<!-- Terms Page -->
+<section class="view-section" id="termsView">
+  <h2>Terms & Conditions</h2>
+  <p>नियम और शर्तें यहां होंगी...</p>
+</section>
+
+  </div>  <footer id="footerNav">
+    <!-- Dynamic buttons will be injected here -->
+  </footer>  <script>
+    const sections = {
+      home: document.getElementById('homeView'),
+      about: document.getElementById('aboutView'),
+      contact: document.getElementById('contactView'),
+      privacy: document.getElementById('privacyView'),
+      terms: document.getElementById('termsView'),
+      game: document.getElementById('gameView')
+    };
+
+    const gameCards = document.querySelectorAll('.game-card');
+    const gameFrame = document.getElementById('gameFrame');
+    const topHomeBtn = document.getElementById('topHomeBtn');
+    const footerNav = document.getElementById('footerNav');
+
+    function showSection(name){
+      for(let key in sections){
+        sections[key].style.display = 'none';
+      }
+      sections[name].style.display = (name === 'home') ? 'grid' : 'block';
+      topHomeBtn.style.display = (name === 'home') ? 'none' : 'inline-block';
+      updateFooter(name);
+    }
+
+    function updateFooter(active){
+      const pages = [
+        {name:'home', label:'Home'},
+        {name:'about', label:'About Us'},
+        {name:'contact', label:'Contact Us'},
+        {name:'privacy', label:'Privacy Policy'},
+        {name:'terms', label:'Terms & Conditions'}
+      ];
+      footerNav.innerHTML = '';
+      pages.forEach(p => {
+        if(p.name !== active){
+          const btn = document.createElement('button');
+          btn.textContent = p.label;
+          btn.onclick = () => showSection(p.name);
+          footerNav.appendChild(btn);
+        }
+      });
+    }
+
+    gameCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const gameUrl = card.getAttribute('data-game');
+        gameFrame.src = gameUrl;
+        showSection('game');
+      });
+    });
+
+    topHomeBtn.addEventListener('click', () => {
+      gameFrame.src = '';
+      showSection('home');
+    });
+
+    showSection('home');
+  </script></body>
 </html>
-
-
-
