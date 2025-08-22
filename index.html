@@ -5,6 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Online Free Games — by GOLu the GhosT</title>
   <style>
+  
+  .work-speed {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #1c1f33, #25294d);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(124,156,255,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.work-speed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(124,156,255,0.2), transparent 70%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+.funny-anim {
+  display: flex;
+  gap: 20px;
+  font-size: 50px;
+}
+
+.gear {
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rocket {
+  animation: fly 2s ease-in-out infinite;
+}
+@keyframes fly {
+  0%,100% { transform: translateY(0) rotate(-20deg); }
+  50% { transform: translateY(-15px) rotate(20deg); }
+}
+
+.joystick {
+  animation: shake 0.4s ease-in-out infinite alternate;
+}
+@keyframes shake {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(10deg); }
+}
+
+.work-text {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  min-height: 24px; /* typewriter ke liye jagah reserve */
+}
+  
     :root{
       --bg: #0f1222;
       --card:#16192b;
@@ -90,7 +159,7 @@
 
   <!-- Flappy Bird -->
   <div class="game-card" data-game="https://golu496.github.io/Tic-Tac-Toe_by_GOLu/">
-    <img src="https://share.google/images/tCStcszbDr5lcJXcn" alt="Snake and Mongoose game">
+   <img src="1.jpg" alt="Snake and Mongoose game">
     <span class="game-title">Snake and Mongoose</span>
   </div>
 
@@ -118,6 +187,16 @@
     <span class="game-title">Subway Surfers<br><small>Coming Soon...</small></span>
   </div>
 </section>
+    
+    <!-- Work in Progress Animation -->
+<div class="work-speed">
+  <div class="funny-anim">
+    <span class="gear">⚙️</span>
+    <span class="rocket">🚀</span>
+    <span class="joystick">🎮</span>
+  </div>
+  <p class="work-text" id="typewriter"></p>
+</div>
 
 
     <!-- Game View -->
@@ -186,6 +265,19 @@ By continuing to use our website, you agree to these terms and conditions.</p>
   <footer id="footerNav"></footer>
 
   <script>
+  
+  // Typewriter Animation
+const text = "Working at full speed to add new games...";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 80); // speed adjust kar sakte ho
+  }
+}
+typeWriter();
+  
     const sections = {
       home: document.getElementById('homeView'),
       about: document.getElementById('aboutView'),
