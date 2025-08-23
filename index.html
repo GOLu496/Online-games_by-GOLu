@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Online Free Games — by GOLu the GhosT</title>
+  <title>Online Free Games — by GOLu</title>
   <style>
-  
+
   .game-card {
   position: relative;
   background: var(--card);
@@ -25,8 +25,8 @@
   inset: 0;
   background: radial-gradient(circle, rgba(124,156,255,0.25), transparent 70%);
   animation: pulse 2s infinite;
-  z-index: -1;           /* 👈 glowing overlay upar */
-  pointer-events: none; /* 👈 clicks block na ho */
+  z-index: -1;           
+  pointer-events: none; 
 }
   .work-speed {
   grid-column: 1 / -1;
@@ -98,7 +98,7 @@
   width: 100%;          
   min-height: 24px;     
 }
-  
+
     :root{
       --bg: #0f1222;
       --card:#16192b;
@@ -169,7 +169,7 @@
     <button class="top-home-btn" id="topHomeBtn">🏠 Home</button>
     <div>
       <h1>Online Free Games</h1>
-      <p class="subline">by <a href="https://youtube.com/@golutheghost-4444" target="_blank">GOLu the GhosT</a></p>
+      <p class="subline">by <a href="https://youtube.com/@golutheghost-4444" target="_blank">GOLu</a></p>
     </div>
   </header>
 
@@ -212,7 +212,7 @@
     <span class="game-title">Subway Surfers<br><small>Coming Soon...</small></span>
   </div>
 </section>
-    
+
     <div class="work-speed">
   <div class="funny-anim">
     <span class="gear">⚙️</span>
@@ -289,7 +289,7 @@ By continuing to use our website, you agree to these terms and conditions.</p>
   <footer id="footerNav"></footer>
 
   <script>
-  
+
   // Typewriter Animation
 const text = "Working at full speed to add new games...";
 let i = 0;
@@ -301,7 +301,7 @@ function typeWriter() {
   }
 }
 typeWriter();
-  
+
     const sections = {
       home: document.getElementById('homeView'),
       about: document.getElementById('aboutView'),
@@ -315,7 +315,7 @@ typeWriter();
     const topHomeBtn = document.getElementById('topHomeBtn');
     const footerNav = document.getElementById('footerNav');
 
-    
+
 function showSection(name){
   for(let key in sections){ 
     sections[key].style.display='none'; 
