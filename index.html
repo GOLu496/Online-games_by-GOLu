@@ -6,6 +6,28 @@
   <title>Online Free Games — by GOLu the GhosT</title>
   <style>
   
+  .game-card {
+  position: relative;
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(124,156,255,0.3);
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(124,156,255,0.25), transparent 70%);
+  animation: pulse 2s infinite;
+  z-index: -1;           /* 👈 glowing overlay upar */
+  pointer-events: none; /* 👈 clicks block na ho */
+}
   .work-speed {
   grid-column: 1 / -1;
   display: flex;
@@ -39,6 +61,8 @@
   display: flex;
   gap: 20px;
   font-size: 50px;
+  justify-content: center; 
+  align-items: center;      
 }
 
 .gear {
@@ -70,8 +94,9 @@
   font-size: 18px;
   font-weight: bold;
   color: var(--accent);
-  text-align: center;
-  min-height: 24px; /* typewriter ke liye jagah reserve */
+  text-align: center;  
+  width: 100%;          
+  min-height: 24px;     
 }
   
     :root{
@@ -110,7 +135,7 @@
       position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
     }
     .game-title{
-      position:absolute;bottom:10px;left:0;right:0;
+      position:absolute;bottom:1px;left:0;right:0;
       text-align:center;font-size:14px;font-weight:600;
       color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);
       background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
@@ -165,31 +190,30 @@
 
       <!-- Snake and Mongoose -->
   <div class="game-card" data-game="https://golu496.github.io/Flappy-Bird/">
-    <img src="10.jpeg" alt="Flappy Bird game">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png" alt="Flappy Bird game">
     <span class="game-title">Flappy Bird</span>
   </div>
 
   <!-- Ludo (Coming Soon) -->
   <div class="game-card">
-    <img src="4.jpg" alt="Ludo board">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3" alt="Ludo board">
     <span class="game-title">Ludo<br><small>Coming Soon...</small></span>
   </div>
 
   <!-- Chess (Coming Soon) -->
   <div class="game-card">
-    <img src="3.jpg" alt="Chess board">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Chess_board_opening_staunton.jpg" alt="Chess board">
     <span class="game-title">Chess<br><small>Coming Soon...</small></span>
   </div>
 
   <!-- Subway Surfers (Coming Soon) -->
   <div class="game-card">
-    <img src="2.jpg" alt="Subway Surfers">
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/90/Subway_Surfers_gameplay.png" alt="Subway Surfers">
     <span class="game-title">Subway Surfers<br><small>Coming Soon...</small></span>
   </div>
 </section>
     
-    <!-- Work in Progress Animation -->
-<div class="work-speed">
+    <div class="work-speed">
   <div class="funny-anim">
     <span class="gear">⚙️</span>
     <span class="rocket">🚀</span>
@@ -291,12 +315,18 @@ typeWriter();
     const topHomeBtn = document.getElementById('topHomeBtn');
     const footerNav = document.getElementById('footerNav');
 
-    function showSection(name){
-      for(let key in sections){ sections[key].style.display='none'; }
-      sections[name].style.display=(name==='home')?'grid':'block';
-      topHomeBtn.style.display=(name==='home')?'none':'inline-block';
-      updateFooter(name);
-    }
+    
+function showSection(name){
+  for(let key in sections){ 
+    sections[key].style.display='none'; 
+  }
+  sections[name].style.display=(name==='home')?'grid':'block';
+  topHomeBtn.style.display=(name==='home')?'none':'inline-block';
+  updateFooter(name);
+
+  const workSpeed = document.querySelector('.work-speed');
+  workSpeed.style.display = (name === 'home') ? 'block' : 'none';
+}
 
     function updateFooter(active){
       const pages=[
